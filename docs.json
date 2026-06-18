@@ -7,7 +7,10 @@
     "light": "#07C983",
     "dark": "#15803D"
   },
-  "favicon": "/favicon.svg",
+  "favicon": {
+    "light": "/images/letter-D7iZZHbx.png",
+    "dark": "/images/letter-D7iZZHbx.png"
+  },
   "navigation": {
     "pages": [
       {
@@ -53,8 +56,7 @@
               "integrations/music/youtube-music.mdx",
               "integrations/music/apple-music.mdx"
             ]
-          },
-          "integrations/chat.mdx"
+          }
         ]
       },
       {
@@ -64,18 +66,26 @@
           "overlay.mdx",
           "queue.mdx"
         ]
+      },
+      {
+        "group": "Desktop app",
+        "icon": "desktop",
+        "pages": [
+          "desktop/closing-the-app"
+        ]
       }
     ]
   },
   "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
+    "light": "/images/letter-D7iZZHbx.png",
+    "dark": "/images/letter-D7iZZHbx.png",
+    "href": "https://docs.requestplus.xyz"
   },
   "navbar": {
     "links": [
       {
-        "label": "Support",
-        "href": "https://github.com/DarkWolfie-YouTube/requestplus/issues"
+        "href": "https://discord.gg/gXDFGAhvNY",
+        "label": "Support (Discord)"
       }
     ],
     "primary": {
@@ -84,22 +94,15 @@
       "href": "https://requestplus.xyz/downloads"
     }
   },
-  "contextual": {
-    "options": [
-      "copy",
-      "view",
-      "chatgpt",
-      "claude",
-      "perplexity",
-      "mcp",
-      "cursor",
-      "vscode"
-    ]
-  },
   "footer": {
     "socials": {
       "github": "https://github.com/DarkWolfie-YouTube/requestplus",
       "website": "https://requestplus.xyz"
+    }
+  },
+  "errors": {
+    "404": {
+      "redirect": true
     }
   }
 }

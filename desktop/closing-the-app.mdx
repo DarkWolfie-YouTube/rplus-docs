@@ -1,0 +1,90 @@
+---
+title: "Closing Request+"
+description: "Request+ runs in the system tray. Here's how to fully quit and restart it."
+icon: "power-off"
+---
+
+Request\+ is a tray application. Clicking the **X** on the window only **hides** the app — it keeps running in the background so chat stays connected and the overlay keeps updating.
+
+<Warning>
+  If you connected or reconnected a chat platform in the [dashboard](https://requestplus.xyz/dashboard), the desktop client **won't pick it up until you fully quit and reopen it**. Closing the window is not enough.
+</Warning>
+
+## When you need to restart
+
+Fully restart Request\+ after any of these:
+
+- Connecting a new chat platform (Twitch / Kick / YouTube)
+- Disconnecting or reconnecting a chat platform
+- Switching music platforms
+- Installing or updating a music integration (Spicetify, Pear, Cider)
+- Applying an app update
+
+## Quit from the system tray
+
+<Tabs>
+  <Tab title="Windows">
+    <Steps>
+      <Step title="Open the tray">
+        Click the **^** arrow in the bottom-right of the taskbar to show hidden icons.
+      </Step>
+      <Step title="Find the Request+ icon">
+        Look for the Request\+ logo in the tray.
+      </Step>
+      <Step title="Right-click → Quit">
+        Right-click the icon and choose **Quit** (or **Exit**). The process fully terminates.
+      </Step>
+      <Step title="Reopen Request+">
+        Launch Request\+ from the Start menu or desktop shortcut. Chat and music connections re-initialize on startup.
+      </Step>
+    </Steps>
+
+    <Tip>
+      If the tray icon is unresponsive, open **Task Manager** (`Ctrl+Shift+Esc`), find **Request\+** under Processes, and click **End task**.
+    </Tip>
+  </Tab>
+  <Tab title="macOS">
+    <Steps>
+      <Step title="Open the menu bar icon">
+        Find the Request\+ icon in the **menu bar** (top-right of your screen).
+      </Step>
+      <Step title="Click → Quit">
+        Click the icon and choose **Quit Request\+**.
+      </Step>
+      <Step title="Reopen Request+">
+        Launch Request\+ from **Applications** or Spotlight (`⌘ + Space` → "Request\+").
+      </Step>
+    </Steps>
+
+    <Tip>
+      `⌘ + Q` with the Request\+ window focused also fully quits the app. Closing the window with the red dot does **not**.
+    </Tip>
+  </Tab>
+  <Tab title="Linux">
+    <Steps>
+      <Step title="Open the tray icon">
+        Click the Request\+ icon in your desktop environment's system tray / status bar.
+      </Step>
+      <Step title="Choose Quit">
+        Select **Quit** from the menu.
+      </Step>
+      <Step title="Reopen Request+">
+        Launch Request\+ from your application menu.
+      </Step>
+    </Steps>
+
+    <Note>
+      Linux builds are community-supported and untested by the maintainer. Tray behavior depends on your desktop environment (GNOME may require an extension like **AppIndicator Support**).
+    </Note>
+  </Tab>
+</Tabs>
+
+## Why does it run in the tray?
+
+Keeping Request\+ in the tray means:
+
+- Chat stays connected even when you minimize the window.
+- The overlay keeps updating in OBS / Streamlabs.
+- You can hide the window during your stream without dropping requests.
+
+If you'd rather close fully when clicking **X**, change the setting under **Settings → General → Close button behavior**.

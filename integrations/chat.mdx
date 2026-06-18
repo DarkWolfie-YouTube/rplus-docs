@@ -1,57 +1,67 @@
 ---
-title: "chat.mdx"
-description: "Connect Twitch, Kick, and YouTube live chat to Request+."
+title: "Chat integrations"
+description: "Connect Twitch, Kick, and YouTube live chat to Request+ from the web dashboard."
 icon: "message"
 ---
 
-Request\+ listens to your live chat for song-request commands and routes them through your active music platform. Three chat sources are supported:
+Chat platforms are linked from the **Request\+ Web Dashboard**, not inside the desktop app. The dashboard handles OAuth, stores the connection on your account, and the desktop client picks it up automatically.
 
-- **Twitch**
-- **Kick**
-- **YouTube** live chat
+<Card title="Open the Request+ Dashboard" icon="arrow-up-right-from-square" href="https://requestplus.xyz/dashboard">
+  Sign in to manage your platform connections.
+</Card>
 
-## Connect a chat platform
+## Platform Connections
 
-<Tabs>
-  <Tab title="Twitch">
-    <Steps>
-      <Step title="Open settings">
-        On the website dashboard, click connect 
-      </Step>
-      <Step title="Sign in with OAuth">
-        Click **Connect with Twitch**. A browser window opens for Twitch OAuth — approve the requested scopes.
+In the dashboard you'll find the **Platform Connections** panel with a card for each supported service:
 
-        Request\+ never sees your password. The OAuth token is stored securely on your device.
-      </Step>
-      <Step title="Confirm channel">
-        Confirm the channel Request\+ should monitor (defaults to your own). Save.
-      </Step>
-    </Steps>
-  </Tab>
-  <Tab title="Kick">
-    <Steps>
-      <Step title="Open settings">
-        Go to **Settings → Chat → Kick**.
-      </Step>
-      <Step title="Sign in with OAuth">
-        Click **Connect with Kick** and complete the OAuth flow in your browser.
-      </Step>
-      <Step title="Confirm channel">
-        Select the Kick channel to listen to and save.
-      </Step>
-    </Steps>
-  </Tab>
-  <Tab title="YouTube">
-    <Steps>
-      <Step title="Open settings">
-        Go to **Settings → Chat → YouTube**.
-      </Step>
-      <Step title="Provide your live stream">
-        Sign in with your Google account and select the active live stream Request\+ should monitor. Request\+ uses the YouTube live chat API.
-      </Step>
-    </Steps>
-  </Tab>
-</Tabs>
+<Frame>
+  ![Request\+ dashboard showing Platform Connections panel with Twitch, Kick, YouTube, and Patreon cards.](/images/dashboard-platform-connections.png)
+</Frame>
+
+| Platform | Use | Status |
+| --- | --- | --- |
+| Twitch | Listen to Twitch chat for `!sr` | Stable |
+| Kick | Listen to Kick chat for `!sr` | Stable |
+| YouTube | Listen to YouTube live chat | **Experimental** — the YouTube Data API is paid, so quota limits apply and reliability varies |
+| Patreon | Optional perks / supporter sync | Optional |
+
+<Warning>
+  **YouTube is experimental.** Because the YouTube Data API is a paid Google service, chat polling is rate-limited and may stop responding during long streams or when daily quota is exhausted. Use Twitch or Kick as your primary chat where possible.
+</Warning>
+
+## Connect a platform
+
+<Steps>
+  <Step title="Open the dashboard">
+    Go to [requestplus.xyz/dashboard](https://requestplus.xyz/dashboard) and sign in.
+  </Step>
+  <Step title="Click Connect on the platform card">
+    In the **Platform Connections** panel, click **Connect** on Twitch, Kick, or YouTube.
+  </Step>
+  <Step title="Follow the on-screen OAuth instructions">
+    A new tab opens on the platform's official site (Twitch, Kick, or Google for YouTube). Follow the on-screen prompts:
+
+    - Sign in if you aren't already.
+    - Review the requested scopes — Request\+ asks for **read access to chat** and the minimum needed to identify your channel.
+    - Click **Authorize** / **Allow**.
+
+    You'll be redirected back to the Request\+ dashboard automatically.
+  </Step>
+  <Step title="Confirm the green check">
+    On the platform card, you should now see **Connected and active** with a green check. For YouTube, your channel name (e.g., `DayTrack`) appears below the status.
+  </Step>
+  <Step title="Restart the desktop client (important)">
+    The desktop client only picks up new chat connections at startup.
+
+    <Warning>
+      If you connect or reconnect a chat platform while Request\+ is already running, **chat will not be listened to** until you fully restart the app — and that means closing it from the system tray, not just the window. See [Closing Request\+](/desktop/closing-the-app).
+    </Warning>
+  </Step>
+</Steps>
+
+## Disconnect a platform
+
+Click **Disconnect** on the platform's card in the dashboard. The OAuth token is revoked on Request\+'s side immediately. Restart the desktop client so it stops trying to listen to that chat.
 
 ## Chat commands
 
@@ -69,7 +79,7 @@ The desktop client resolves the request on your active music platform, updates t
 
 ## Moderation rules
 
-From **Settings → Requests**, you can restrict who can request:
+From **Settings → Requests** in the desktop app, you can restrict who can request:
 
 - **Moderators only** — only chat mods can request.
 - **Subscribers only** — only subs can request (Twitch/YouTube).
@@ -77,3 +87,19 @@ From **Settings → Requests**, you can restrict who can request:
 - **Guess the Song** — hide track info from the overlay until the song is revealed.
 
 See [Queue & moderation](/queue) for the full breakdown.
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Chat isn't being read after I connected">
+    The desktop client caches platform connections on startup. **Quit Request\+ from the tray** and reopen it. See [Closing Request\+](/desktop/closing-the-app).
+  </Accordion>
+
+  <Accordion title="YouTube chat stopped mid-stream">
+    YouTube's API has daily quota. When quota is exhausted, polling stops until it resets (usually 24 h). This is a YouTube limitation, not a Request\+ bug.
+  </Accordion>
+
+  <Accordion title="Dashboard shows connected but no requests come through">
+    Confirm the desktop client is running and signed in to the same Request\+ account, then restart it from the tray.
+  </Accordion>
+</AccordionGroup>
