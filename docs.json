@@ -4,7 +4,7 @@
   "name": "Request+",
   "colors": {
     "primary": "#16A34A",
-    "light": "#07C983",
+    "light": "#16A34A",
     "dark": "#15803D"
   },
   "favicon": {
@@ -105,5 +105,18 @@
     "404": {
       "redirect": true
     }
+  },
+  "icons": {
+    "library": "fontawesome"
+  },
+  "background": {
+    "decoration": "windows"
+  },
+  "appearance": {
+    "default": "dark",
+    "strict": true
+  },
+  "fonts": {
+    "family": "Dosis"
   }
 }
