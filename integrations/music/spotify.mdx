@@ -1,5 +1,5 @@
 ---
-title: "Spotify"
+title: "spotify.mdx"
 description: "Connect Request+ to Spotify using the Spicetify extension."
 icon: "spotify"
 ---
@@ -23,25 +23,31 @@ Request\+ integrates with the official Spotify desktop client through a [Spiceti
     ```
   </Step>
   <Step title="Install the Request+ extension">
-    In Request\+, open **Settings → Music → Spotify** and click **Install Spicetify extension**. This copies the extension into your Spicetify `Extensions` folder and enables it.
+    In the **Spotify** client, open the Marketplace tab. It should look like a shopping cart icon.\
 
-    Alternatively, install it manually by copying the extension file into:
+    <Frame>
+      ![Image](/images/image.png)
+    </Frame>
 
-    - **Windows:** `%appdata%\spicetify\Extensions\`
-    - **macOS / Linux:** `~/.config/spicetify/Extensions/`
+    In the marketplace, search for "**Request\+**", you should see the following entry.
 
-    Then run:
+    <Note>
+      This may not show instantly, click the load more button if you can't see our extension!
+    </Note>
 
-    ```bash
-    spicetify config extensions requestplus.js
-    spicetify apply
-    ```
+    <Frame>
+      ![Image](/images/image-2.png)
+    </Frame>
   </Step>
   <Step title="Restart Spotify">
-    Fully quit and reopen Spotify so Spicetify can inject the extension.
+    Spicetify should prompt you to reload for the extension, go ahead and do that, it's needed to load the code!
   </Step>
   <Step title="Verify the connection">
-    Back in Request\+, the **Spotify** status indicator should turn green. Play any track in Spotify — it should appear in the Now Playing panel.
+    Back in Request\+, the **Spotify** current track object should populate the now playing screen, as seen below!
+
+    <Frame>
+      ![Image](/images/image-3.png)
+    </Frame>
   </Step>
 </Steps>
 
@@ -58,8 +64,8 @@ Request\+ integrates with the official Spotify desktop client through a [Spiceti
 ## Troubleshooting
 
 <AccordionGroup>
-  <Accordion title="Status indicator stays red">
-    Make sure Spotify is fully closed (not just minimized to tray) before reopening. On Windows, check Task Manager for lingering `Spotify.exe` processes.
+  <Accordion title="Player Object not properly displaying">
+    This could be that you haven't started playing or the application failed to start it's websocket server, check out \<link-here\>
   </Accordion>
 
   <Accordion title="Spicetify apply fails">
@@ -67,6 +73,6 @@ Request\+ integrates with the official Spotify desktop client through a [Spiceti
   </Accordion>
 
   <Accordion title="Extension disappears after a Spotify update">
-    Spotify updates can overwrite Spicetify. Re-run `spicetify apply` after each update.
+    Spotify updates can overwrite Spicetify. Re-run `spicetify update` or `spicetify apply` after each update.
   </Accordion>
 </AccordionGroup>

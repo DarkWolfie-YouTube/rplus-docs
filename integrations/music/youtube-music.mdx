@@ -1,5 +1,5 @@
 ---
-title: "YouTube Music"
+title: "youtube-music.mdx"
 description: "Connect Request+ to YouTube Music using Pear Desktop."
 icon: "youtube"
 ---
@@ -16,7 +16,13 @@ Request\+ integrates with YouTube Music through the [Pear Desktop](https://githu
     In Pear Desktop, open **Settings → Plugins** and enable the **API Server** plugin. Confirm the port matches the one Request\+ expects (default `26538`).
   </Step>
   <Step title="Select YouTube Music in Request+">
-    In Request\+, open **Settings → Music → YouTube Music** and click **Connect**. The status indicator should turn green within a few seconds.
+    In Request\+, open **Settings → Music → YouTube Music**. After selecting the platform, YouTube Music will show the following prompt by default. 
+
+    <Frame>
+      ![Image](/images/image.png)
+    </Frame>
+
+    Click "**Allow**" to give Request\+ a API token for the YouTube Local API
   </Step>
   <Step title="Play a track">
     Start playback in Pear Desktop. Request\+ should pick up the track and display it in the Now Playing panel and overlay.
@@ -39,8 +45,25 @@ Request\+ integrates with YouTube Music through the [Pear Desktop](https://githu
   <Accordion title="Request+ can't connect">
     Make sure the **API Server** plugin is enabled and Pear Desktop is running. Check your firewall isn't blocking localhost connections on the configured port.
   </Accordion>
-
-  <Accordion title="Tracks don't queue">
-    Some video-only results aren't queueable. Use song results (with the music note icon) where possible.
-  </Accordion>
 </AccordionGroup>
+
+<Accordion title="Tracks don't queue">
+  Some video-only results aren't queueable. Use song results (with the music note icon) where possible.
+
+  <Note>
+    You can check for videos at [https://music.youtube.com](https://music.youtube.com) or going to YouTube's main site and looking at the video objects, if they show the music icon, they are compatible. The top is one that works and the bottom shows the wrong type of video.
+  </Note>
+
+  <Frame>
+    ![Music Icon Example](/images/music_icon_example.png)
+  </Frame>
+
+  <Frame>
+    <img
+      src="/images/image-2.png"
+      alt="Image"
+      title="Image"
+      className="ml-auto"
+    />
+  </Frame>
+</Accordion>

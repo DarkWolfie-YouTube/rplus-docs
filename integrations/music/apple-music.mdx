@@ -1,5 +1,5 @@
 ---
-title: "Apple Music"
+title: "apple-music.mdx"
 description: "Connect Request+ to Apple Music using Cider."
 icon: "apple"
 ---
@@ -14,13 +14,18 @@ Request\+ integrates with Apple Music through [Cider](https://cider.sh), a third
 
 <Steps>
   <Step title="Install Cider">
-    Download Cider from [cider.sh](https://cider.sh) and sign in with your Apple ID.
+    Purchase and download Cider from [cider.sh](https://cider.sh) and sign in with your Apple ID. v3 or v4.
   </Step>
-  <Step title="Enable the RPC bridge">
+  <Step title="Enable the RPC bridge (v4 ONLY)">
     In Cider, open **Settings → Connectivity** and enable **RPC** (sometimes called **WebSocket API** or **Cider Connect**). Note the port if it isn't the default.
   </Step>
+  <Step title="2b. Install the Cider Plugin (v3 ONLY)" icon="b" iconType="thin" stepNumber={2}>
+    Follow the video guide on how to install the Cider v3 Plugin here: [https://www.youtube.com/watch?v=3dnW\_UvwEyA](https://www.youtube.com/watch?v=3dnW_UvwEyA)
+  </Step>
   <Step title="Connect from Request+">
-    In Request\+, open **Settings → Music → Apple Music** and click **Connect**. The status indicator should turn green.
+    In Request\+, open **Settings → Music → Apple Music**, and choose your Cider version.\
+    If on v4, check the Cider application!\
+    On v3, make sure the plugin is enabled!
   </Step>
   <Step title="Verify">
     Play a track in Cider — it should appear in Request\+ within a second or two.
@@ -40,7 +45,7 @@ Request\+ integrates with Apple Music through [Cider](https://cider.sh), a third
 ## Troubleshooting
 
 <AccordionGroup>
-  <Accordion title="Status stays red">
+  <Accordion title="Issues with RPC">
     Re-check Cider's RPC setting. Some Cider versions ship with RPC disabled by default after an update.
   </Accordion>
 
