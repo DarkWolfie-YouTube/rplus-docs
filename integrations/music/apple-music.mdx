@@ -4,7 +4,7 @@ description: "Connect Request+ to Apple Music using Cider."
 icon: "apple"
 ---
 
-Request\+ integrates with Apple Music through [Cider](https://cider.sh), a third-party Apple Music desktop client that exposes an RPC bridge Request\+ can read and control.
+Request\+ integrates with Apple Music through [Cider](https://cider.sh), a third-party Apple Music desktop client. Request\+ supports both Cider 3 and Cider 4, but the setup flow is different for each version.
 
 <Info>
   Cider requires a valid Apple Music subscription to play full tracks.
@@ -14,21 +14,23 @@ Request\+ integrates with Apple Music through [Cider](https://cider.sh), a third
 
 <Steps>
   <Step title="Install Cider">
-    Purchase and download Cider from [cider.sh](https://cider.sh) and sign in with your Apple ID. v3 or v4.
+    Purchase and download Cider from [cider.sh](https://cider.sh), then sign in with your Apple ID.
   </Step>
-  <Step title="Enable the RPC bridge (v4 ONLY)">
-    In Cider, open **Settings → Connectivity** and enable **RPC** (sometimes called **WebSocket API** or **Cider Connect**). Note the port if it isn't the default.
+
+  <Step title="Pick Apple Music in Request+">
+    In Request\+, open **Settings -> Platform Settings -> Main Platform** and choose **Apple Music (Cider)**. Request\+ will ask **Which Cider version?**.
   </Step>
-  <Step title="2b. Install the Cider Plugin (v3 ONLY)" icon="b" iconType="thin" stepNumber={2}>
-    Follow the video guide on how to install the Cider v3 Plugin here: [https://www.youtube.com/watch?v=3dnW\_UvwEyA](https://www.youtube.com/watch?v=3dnW_UvwEyA)
+
+  <Step title="If you use Cider 4">
+    Choose **Cider 4**. Request\+ will show a **Connect Cider 4** flow and send an authorization request to Cider. Approve the Request\+ prompt inside Cider; Request\+ stores the returned Cider 4 API token automatically.
   </Step>
-  <Step title="Connect from Request+">
-    In Request\+, open **Settings → Music → Apple Music**, and choose your Cider version.\
-    If on v4, check the Cider application!\
-    On v3, make sure the plugin is enabled!
+
+  <Step title="If you use Cider 3">
+    Choose **Cider 3**. Install and enable the Request\+ Cider 3 plugin, then paste your Cider API token into the **Cider API Token** field if your Cider setup requires one. Follow the Cider 3 plugin video guide here: [https://www.youtube.com/watch?v=3dnW\_UvwEyA](https://www.youtube.com/watch?v=3dnW_UvwEyA).
   </Step>
+
   <Step title="Verify">
-    Play a track in Cider — it should appear in Request\+ within a second or two.
+    Play a track in Cider. It should appear in Request\+ within a second or two, and the overlay should update with the current Apple Music track.
   </Step>
 </Steps>
 
@@ -45,11 +47,19 @@ Request\+ integrates with Apple Music through [Cider](https://cider.sh), a third
 ## Troubleshooting
 
 <AccordionGroup>
-  <Accordion title="Issues with RPC">
-    Re-check Cider's RPC setting. Some Cider versions ship with RPC disabled by default after an update.
+  <Accordion title="Cider 4 token prompt does not appear">
+    Make sure Cider 4 is open before clicking **Connect Cider 4** in Request\+. If the request fails, wait a few seconds and try again; Request\+ briefly cools down failed token requests.
+  </Accordion>
+
+  <Accordion title="Cider 4 connected but no track appears">
+    Reopen Cider and Request\+, then use **Refresh Cider 4 Token** from Request\+'s Apple Music settings. Cider 4 uses a scoped token, so Request\+ needs the token before it can read playback, control audio, manage the queue, or update library state.
+  </Accordion>
+
+  <Accordion title="Cider 3 does not update Request+">
+    Make sure the Cider 3 plugin is installed and enabled. Cider 3 sends playback updates through the local Request\+ WebSocket bridge, so Request\+ and Cider both need to be running.
   </Accordion>
 
   <Accordion title="Some controls are missing">
-    Cider's RPC surface varies by version. Update Cider to the latest release to maximize supported actions.
+    Cider's API surface varies by version. Update Cider to the latest release for your major version to maximize supported actions.
   </Accordion>
 </AccordionGroup>

@@ -1,6 +1,6 @@
 ---
 title: "SoundCloud"
-description: "Experimental SoundCloud integration via the local Request+ handler."
+description: "Experimental SoundCloud integration through the browser-side Request+ bridge."
 icon: "soundcloud"
 ---
 
@@ -8,26 +8,50 @@ icon: "soundcloud"
   SoundCloud support is **experimental**. Behavior, supported controls, and stability may change between releases.
 </Warning>
 
-Request\+ ships a local SoundCloud handler that reads track metadata and supports basic playback control. Unlike Spotify, YouTube Music, and Apple Music, there is no dedicated desktop client — Request\+ talks to SoundCloud directly.
+Request\+ connects to SoundCloud through a browser-side JavaScript bridge. SoundCloud must be open in your browser, the bridge must be loaded on SoundCloud, and the Request\+ desktop app must be running so the bridge can connect to the local WebSocket server.
 
 ## Setup
 
 <Steps>
-  <Step title="Enable SoundCloud">
-    In Request\+, open **Settings → Music → SoundCloud** and toggle the integration on.
+  <Step title="Start Request+">
+    Open the Request\+ desktop app first. The SoundCloud bridge connects to Request\+'s local WebSocket server at `ws://localhost:443`, so the app needs to stay running while you use SoundCloud.
   </Step>
-  <Step title="Sign in">
-    Sign in with your SoundCloud account when prompted. Some actions require an authenticated session.
+
+  <Step title="Select SoundCloud">
+    In Request\+, open **Settings -> Platform Settings -> Main Platform** and choose **SoundCloud**. Settings save automatically after you change the platform.
   </Step>
-  <Step title="Test playback">
-    Request a SoundCloud track from chat or paste a SoundCloud URL into the Request\+ search bar to verify it queues and plays.
+
+  <Step title="Load the SoundCloud bridge">
+    Open SoundCloud in your browser and load the Request\+ SoundCloud script through BetterSoundCloud or your custom JavaScript loader. The loader used by the app fetches `soundcloud.js` from the Request\+ GitHub repository:
+
+    ```js
+    fetch("https://raw.githubusercontent.com/DarkWolfie-YouTube/requestplus/main/soundcloud.js")
+      .then(r => r.text())
+      .then(code => Function(code)())
+      .catch(console.error);
+    ```
+  </Step>
+
+  <Step title="Verify the connection">
+    Start playing a public SoundCloud track. Within a second or two, Request\+ should show the current track metadata and the overlay should update.
+  </Step>
+
+  <Step title="Test a request">
+    Send a chat request with a full SoundCloud track URL, such as `!sr https://soundcloud.com/artist/track-name`. Request\+ only accepts SoundCloud links for this integration; plain-text SoundCloud search is not currently supported.
   </Step>
 </Steps>
 
+## What to expect
+
+- Request\+ reads the current SoundCloud title, artist, artwork, playback progress, like state, volume, and repeat state from the SoundCloud page.
+- Playback controls in Request\+ can send play/pause, next, previous, like, volume, seek, and queue commands back to SoundCloud.
+- When chat requests a SoundCloud URL, Request\+ adds it to its queue and hands it to the SoundCloud page when it is time to play.
+
 ## Known limitations
 
-- Not all playback actions (seek, shuffle, repeat) are available.
-- Track metadata may be incomplete for some uploads.
-- Some geo-restricted or private tracks won't resolve.
+- The SoundCloud browser tab must remain open with the bridge loaded.
+- Private, removed, or geo-restricted tracks may not resolve.
+- Track metadata comes from SoundCloud's page markup, so it can break when SoundCloud changes its UI.
+- Request\+ does not currently perform SoundCloud search from plain text chat requests.
 
 If you hit an issue, please [open a bug report](https://github.com/DarkWolfie-YouTube/requestplus/issues) so it can be tracked toward a stable release.
