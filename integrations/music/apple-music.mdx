@@ -1,0 +1,50 @@
+---
+title: "Apple Music"
+description: "Connect Request+ to Apple Music using Cider."
+icon: "apple"
+---
+
+Request\+ integrates with Apple Music through [Cider](https://cider.sh), a third-party Apple Music desktop client that exposes an RPC bridge Request\+ can read and control.
+
+<Info>
+  Cider requires a valid Apple Music subscription to play full tracks.
+</Info>
+
+## Setup
+
+<Steps>
+  <Step title="Install Cider">
+    Download Cider from [cider.sh](https://cider.sh) and sign in with your Apple ID.
+  </Step>
+  <Step title="Enable the RPC bridge">
+    In Cider, open **Settings → Connectivity** and enable **RPC** (sometimes called **WebSocket API** or **Cider Connect**). Note the port if it isn't the default.
+  </Step>
+  <Step title="Connect from Request+">
+    In Request\+, open **Settings → Music → Apple Music** and click **Connect**. The status indicator should turn green.
+  </Step>
+  <Step title="Verify">
+    Play a track in Cider — it should appear in Request\+ within a second or two.
+  </Step>
+</Steps>
+
+## Supported actions
+
+- Play / pause
+- Skip / previous
+- Seek
+- Volume
+- Shuffle / repeat
+- Like
+- Queue requested tracks
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Status stays red">
+    Re-check Cider's RPC setting. Some Cider versions ship with RPC disabled by default after an update.
+  </Accordion>
+
+  <Accordion title="Some controls are missing">
+    Cider's RPC surface varies by version. Update Cider to the latest release to maximize supported actions.
+  </Accordion>
+</AccordionGroup>

@@ -1,7 +1,7 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mintlify Starter Kit",
+  "name": "Request+",
   "colors": {
     "primary": "#16A34A",
     "light": "#07C983",
@@ -21,17 +21,52 @@
     "global": {
       "anchors": [
         {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
+          "anchor": "Website",
+          "icon": "globe",
+          "href": "https://requestplus.xyz"
         },
         {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
+          "anchor": "GitHub",
+          "icon": "github",
+          "href": "https://github.com/DarkWolfie-YouTube/requestplus"
         }
       ]
-    }
+    },
+    "groups": [
+      {
+        "group": "Getting Started",
+        "pages": [
+          "index",
+          "quickstart"
+        ]
+      },
+      {
+        "group": "Integrations",
+        "icon": "plug",
+        "pages": [
+          {
+            "group": "Music platforms",
+            "icon": "music",
+            "pages": [
+              "integrations/music.mdx",
+              "integrations/music/spotify.mdx",
+              "integrations/music/youtube-music.mdx",
+              "integrations/music/apple-music.mdx",
+              "integrations/music/soundcloud.mdx"
+            ]
+          },
+          "integrations/chat.mdx"
+        ]
+      },
+      {
+        "group": "Streaming",
+        "icon": "tv",
+        "pages": [
+          "overlay.mdx",
+          "queue.mdx"
+        ]
+      }
+    ]
   },
   "logo": {
     "light": "/logo/light.svg",
@@ -41,13 +76,13 @@
     "links": [
       {
         "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "href": "https://github.com/DarkWolfie-YouTube/requestplus/issues"
       }
     ],
     "primary": {
       "type": "button",
-      "label": "Dashboard",
-      "href": "https://app.mintlify.com"
+      "label": "Download",
+      "href": "https://requestplus.xyz/downloads"
     }
   },
   "contextual": {
@@ -64,9 +99,8 @@
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "github": "https://github.com/DarkWolfie-YouTube/requestplus",
+      "website": "https://requestplus.xyz"
     }
   }
 }

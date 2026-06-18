@@ -1,0 +1,75 @@
+---
+title: "Stream overlay"
+description: "Add the Request+ Now Playing overlay to OBS or Streamlabs."
+icon: "tv"
+---
+
+The Request\+ overlay is a browser source you add to OBS or Streamlabs. It displays the currently playing track in real time.
+
+## What it shows
+
+- Song title and artist
+- Album art
+- Playback progress
+- Hidden-song state for **Guess the Song**
+- Theme-specific styling
+
+## Add the overlay
+
+<Tabs>
+  <Tab title="OBS Studio">
+    <Steps>
+      <Step title="Copy the overlay URL">
+        In Request\+, open **Settings → Overlay** and click **Copy URL** next to the theme you want.
+      </Step>
+      <Step title="Add a Browser source">
+        In OBS, click **\+** under **Sources** → **Browser**. Name it `Request+ Overlay`.
+      </Step>
+      <Step title="Configure the source">
+        Paste the copied URL. Suggested settings:
+
+        - **Width:** 600
+        - **Height:** 150
+        - **Refresh browser when scene becomes active:** ✅
+      </Step>
+      <Step title="Position it">
+        Drag the overlay into place on your scene. Done.
+      </Step>
+    </Steps>
+  </Tab>
+  <Tab title="Streamlabs">
+    <Steps>
+      <Step title="Copy the overlay URL">
+        In Request\+, open **Settings → Overlay** and copy the URL for your chosen theme.
+      </Step>
+      <Step title="Add a Browser Source">
+        In Streamlabs, click **\+** under **Sources** → **Browser Source**.
+      </Step>
+      <Step title="Paste the URL">
+        Use width `600` and height `150` as a starting point. Save.
+      </Step>
+    </Steps>
+  </Tab>
+</Tabs>
+
+## Themes
+
+Request\+ ships several overlay themes out of the box. Switch themes from **Settings → Overlay → Theme**. Each theme has its own browser-source URL.
+
+### Custom CSS
+
+You can override styles by editing the theme CSS files directly. Overlay files live in the app's data folder:
+
+- **Windows:** `%appdata%\Request+\`
+- **macOS:** `~/Library/Application Support/Request+/`
+- **Linux:** _not officially tested_
+
+Inside the data folder, overlay views are under `views/` with CSS themes in `views/styles/`. Edit a CSS file, refresh the browser source, and your changes appear live.
+
+<Tip>
+  Duplicate a theme file before editing it so you can roll back if something breaks.
+</Tip>
+
+## Guess the Song
+
+When **Guess the Song** mode is on, the overlay hides the track title, artist, and album art until you reveal the answer in the desktop app. Use this for chat-guessing games without spoilers leaking through the overlay.

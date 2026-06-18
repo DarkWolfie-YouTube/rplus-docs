@@ -1,0 +1,40 @@
+---
+title: "Music platforms"
+description: "Connect Request+ to Spotify, YouTube Music, Apple Music, or SoundCloud."
+icon: "music"
+---
+
+Request\+ is built around a multi-platform playback layer. Pick the music source you actually stream with — Request\+ uses the best available controls for each platform and falls back where local APIs are limited.
+
+## Supported sources
+
+| Platform | Integration | Experimental |
+| --- | --- | --- |
+| Spotify | Spicetify extension \+ local WebSocket bridge | No |
+| YouTube Music | Pear Desktop / YouTube Music API bridge | No |
+| Apple Music | Cider RPC / Apple Music handler | No |
+| SoundCloud | Local SoundCloud handler | Yes |
+
+<Note>
+  Not every source supports every playback action equally. Skip, seek, volume, shuffle, repeat, and likes are available where the platform exposes them.
+</Note>
+
+## Pick your platform
+
+<CardGroup cols={2}>
+  <Card title="Spotify" icon="spotify" href="/integrations/music/spotify">
+    Setup via Spicetify extension.
+  </Card>
+
+  <Card title="YouTube Music" icon="youtube" href="/integrations/music/youtube-music">
+    Setup via Pear Desktop.
+  </Card>
+
+  <Card title="Apple Music" icon="apple" href="/integrations/music/apple-music">
+    Setup via Cider.
+  </Card>
+
+  <Card title="SoundCloud" icon="soundcloud" href="/integrations/music/soundcloud">
+    Experimental local handler.
+  </Card>
+</CardGroup>

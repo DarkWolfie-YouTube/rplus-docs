@@ -1,0 +1,33 @@
+---
+title: "SoundCloud"
+description: "Experimental SoundCloud integration via the local Request+ handler."
+icon: "soundcloud"
+---
+
+<Warning>
+  SoundCloud support is **experimental**. Behavior, supported controls, and stability may change between releases.
+</Warning>
+
+Request\+ ships a local SoundCloud handler that reads track metadata and supports basic playback control. Unlike Spotify, YouTube Music, and Apple Music, there is no dedicated desktop client — Request\+ talks to SoundCloud directly.
+
+## Setup
+
+<Steps>
+  <Step title="Enable SoundCloud">
+    In Request\+, open **Settings → Music → SoundCloud** and toggle the integration on.
+  </Step>
+  <Step title="Sign in">
+    Sign in with your SoundCloud account when prompted. Some actions require an authenticated session.
+  </Step>
+  <Step title="Test playback">
+    Request a SoundCloud track from chat or paste a SoundCloud URL into the Request\+ search bar to verify it queues and plays.
+  </Step>
+</Steps>
+
+## Known limitations
+
+- Not all playback actions (seek, shuffle, repeat) are available.
+- Track metadata may be incomplete for some uploads.
+- Some geo-restricted or private tracks won't resolve.
+
+If you hit an issue, please [open a bug report](https://github.com/DarkWolfie-YouTube/requestplus/issues) so it can be tracked toward a stable release.

@@ -1,0 +1,72 @@
+---
+title: "Spotify"
+description: "Connect Request+ to Spotify using the Spicetify extension."
+icon: "spotify"
+---
+
+Request\+ integrates with the official Spotify desktop client through a [Spicetify](https://spicetify.app) extension that exposes a local WebSocket bridge to the Request\+ app.
+
+<Info>
+  You need the **desktop** Spotify client. Web Player and mobile are not supported.
+</Info>
+
+## Setup
+
+<Steps>
+  <Step title="Install Spicetify">
+    Follow the official [Spicetify installation guide](https://spicetify.app/docs/getting-started) for your OS.
+
+    Verify it works:
+
+    ```bash
+    spicetify -v
+    ```
+  </Step>
+  <Step title="Install the Request+ extension">
+    In Request\+, open **Settings → Music → Spotify** and click **Install Spicetify extension**. This copies the extension into your Spicetify `Extensions` folder and enables it.
+
+    Alternatively, install it manually by copying the extension file into:
+
+    - **Windows:** `%appdata%\spicetify\Extensions\`
+    - **macOS / Linux:** `~/.config/spicetify/Extensions/`
+
+    Then run:
+
+    ```bash
+    spicetify config extensions requestplus.js
+    spicetify apply
+    ```
+  </Step>
+  <Step title="Restart Spotify">
+    Fully quit and reopen Spotify so Spicetify can inject the extension.
+  </Step>
+  <Step title="Verify the connection">
+    Back in Request\+, the **Spotify** status indicator should turn green. Play any track in Spotify — it should appear in the Now Playing panel.
+  </Step>
+</Steps>
+
+## Supported actions
+
+- Play / pause
+- Skip / previous
+- Seek
+- Volume
+- Shuffle / repeat
+- Like / unlike
+- Queue requested tracks
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Status indicator stays red">
+    Make sure Spotify is fully closed (not just minimized to tray) before reopening. On Windows, check Task Manager for lingering `Spotify.exe` processes.
+  </Accordion>
+
+  <Accordion title="Spicetify apply fails">
+    Run `spicetify backup apply` as your normal user account, not as administrator. See the [Spicetify troubleshooting docs](https://spicetify.app/docs/faq).
+  </Accordion>
+
+  <Accordion title="Extension disappears after a Spotify update">
+    Spotify updates can overwrite Spicetify. Re-run `spicetify apply` after each update.
+  </Accordion>
+</AccordionGroup>

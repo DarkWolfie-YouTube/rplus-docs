@@ -3,45 +3,72 @@ title: "Quickstart"
 description: "Begin with a guide on the fastest path to a successful outcome"
 ---
 
-Describe how someone begins using your product. What is the first thing they need to do? Are there any prerequisites?
-
-A quickstart should take someone from zero to using your product. They'll get a quick win and a sense of what they can accomplish.
+This guide takes you from zero to a working Request\+ setup: app installed, music platform connected, chat connected, and the overlay live in OBS.
 
 ## Prerequisites
 
-Before you begin, you must have:
+- A supported operating system: **Windows 10/11**, **macOS**, or **Linux**.
+- A streaming account on **Twitch**, **Kick**, or **YouTube**.
+- A music player you actually use: **Spotify**, **YouTube Music**, **Apple Music**, or **SoundCloud**.
+- **OBS Studio** or **Streamlabs** if you want the on-stream overlay.
 
-- Requirement one (for example, Node.js 18+, a free account, an API key)
-- Requirement two (for example, a compatible device, a compatible browser, a compatible operating system)
-
-## Get started
+## Install Request\+
 
 <Steps>
-  <Step title="Install">
-    Describe how to install your product or sign up.
+  <Step title="Download the app">
+    Grab the latest build from the [official downloads page](https://requestplus.xyz/downloads) or [GitHub Releases](https://github.com/DarkWolfie-YouTube/requestplus/releases).
 
-    ```bash
-    npm install your-package
-    ```
+    Platform packages available:
+
+    - Windows installer or portable build
+    - Windows MSIX/AppX package
+    - macOS package
+    - Linux package
   </Step>
-  <Step title="Configure">
-    Describe any setup or configuration needed before first use.
-
-    ```bash
-    your-cli init
-    ```
+  <Step title="Install and launch">
+    Run the installer for your OS and open Request\+. On first launch the app registers the device with the Request\+ API using hardware/device authentication — no password needed for the desktop client itself.
   </Step>
-  <Step title="Run it">
-    Show the first thing a user does to see it working.
+  <Step title="Sign in to your stream platform">
+    Connect **Twitch** and/or **Kick** via OAuth from the app's settings. Request\+ uses secure OAuth so your credentials never touch the app.
 
-    ```bash
-    your-cli start
+    See [Chat integrations](/integrations/chat) for the full walkthrough.
+  </Step>
+  <Step title="Connect your music platform">
+    Pick the platform you stream with and follow its setup:
+
+    - **Spotify** — install the [Spicetify](/integrations/music/spotify) extension.
+    - **YouTube Music** — install [Pear Desktop](/integrations/music/youtube-music).
+    - **Apple Music** — install [Cider](/integrations/music/apple-music).
+    - **SoundCloud** — enable the [local handler](/integrations/music/soundcloud) <Tooltip tip="SoundCloud integration is experimental.">(experimental)</Tooltip>.
+  </Step>
+  <Step title="Add the overlay to OBS">
+    Add the Request\+ overlay as a browser source in OBS or Streamlabs so viewers see what's playing.
+
+    Full instructions: [Stream overlay](/overlay).
+  </Step>
+  <Step title="Take your first request">
+    In your stream chat, type:
+
+    ```text
+    !sr never gonna give you up
     ```
+
+    Request\+ resolves the track, adds it to your queue, sends it to your music player, and updates the overlay.
   </Step>
 </Steps>
 
-<Tip>
-  Give people a way to get help. This could be a link to a support page, a chat with a customer support agent, or a forum for your product.
+## Next steps
 
-  Example: Need help? Reach out to us at [support@yourcompany.com](mailto:support@yourcompany.com).
+<CardGroup cols={2}>
+  <Card title="Queue & moderation" icon="list-check" href="/queue">
+    Configure mods-only mode, sub-only mode, manual approval, and Guess the Song.
+  </Card>
+
+  <Card title="Customize the overlay" icon="palette" href="/overlay#themes">
+    Swap themes or write custom CSS to match your branding.
+  </Card>
+</CardGroup>
+
+<Tip>
+  Need help? Visit [requestplus.xyz](https://requestplus.xyz) or open an issue on [GitHub](https://github.com/DarkWolfie-YouTube/requestplus/issues).
 </Tip>

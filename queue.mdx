@@ -1,0 +1,47 @@
+---
+title: "Queue & moderation"
+description: "Manage the request queue and configure who can request songs."
+icon: "list-check"
+---
+
+The Request\+ desktop client gives you full control over incoming requests, the playback queue, and who is allowed to request in the first place.
+
+## Queue controls
+
+From the main Request\+ window you can:
+
+- **Skip** the current track
+- **Reorder** queued requests via drag-and-drop
+- **Remove** a request
+- **Approve** or **deny** pending requests (in manual approval mode)
+- Adjust **volume**, **seek**, **shuffle**, **repeat**, and **like** on the active music platform
+
+## Moderation rules
+
+Open **Settings → Requests** to enable any combination of:
+
+<AccordionGroup>
+  <Accordion title="Moderators only">
+    Only chat moderators (and you) can use `!sr`. Useful for raids or hectic chats.
+  </Accordion>
+
+  <Accordion title="Subscribers only">
+    Restrict requests to subscribers. Supported on Twitch and YouTube.
+  </Accordion>
+
+  <Accordion title="Manual queue approval">
+    Every request lands in a **Pending** list. Nothing plays until you approve it.
+  </Accordion>
+
+  <Accordion title="Guess the Song">
+    Hides song info from the [overlay](/overlay) so chat can guess the track. Reveal it manually when you're ready.
+  </Accordion>
+</AccordionGroup>
+
+## Cooldowns and limits
+
+You can configure per-user cooldowns and a maximum number of pending requests per viewer to prevent spam.
+
+## Blocklists
+
+Block specific tracks, artists, or users from the **Settings → Blocklist** screen. Blocked entries are rejected silently or with a chat reply (configurable).

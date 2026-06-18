@@ -1,0 +1,79 @@
+---
+title: "Chat integrations"
+description: "Connect Twitch, Kick, and YouTube live chat to Request+."
+icon: "message"
+---
+
+Request\+ listens to your live chat for song-request commands and routes them through your active music platform. Three chat sources are supported:
+
+- **Twitch**
+- **Kick**
+- **YouTube** live chat
+
+## Connect a chat platform
+
+<Tabs>
+  <Tab title="Twitch">
+    <Steps>
+      <Step title="Open settings">
+        In Request\+, go to **Settings → Chat → Twitch**.
+      </Step>
+      <Step title="Sign in with OAuth">
+        Click **Connect with Twitch**. A browser window opens for Twitch OAuth — approve the requested scopes.
+
+        Request\+ never sees your password. The OAuth token is stored securely on your device.
+      </Step>
+      <Step title="Confirm channel">
+        Confirm the channel Request\+ should monitor (defaults to your own). Save.
+      </Step>
+    </Steps>
+  </Tab>
+  <Tab title="Kick">
+    <Steps>
+      <Step title="Open settings">
+        Go to **Settings → Chat → Kick**.
+      </Step>
+      <Step title="Sign in with OAuth">
+        Click **Connect with Kick** and complete the OAuth flow in your browser.
+      </Step>
+      <Step title="Confirm channel">
+        Select the Kick channel to listen to and save.
+      </Step>
+    </Steps>
+  </Tab>
+  <Tab title="YouTube">
+    <Steps>
+      <Step title="Open settings">
+        Go to **Settings → Chat → YouTube**.
+      </Step>
+      <Step title="Provide your live stream">
+        Sign in with your Google account and select the active live stream Request\+ should monitor. Request\+ uses the YouTube live chat API.
+      </Step>
+    </Steps>
+  </Tab>
+</Tabs>
+
+## Chat commands
+
+Viewers request songs with `!sr` (song request). Request\+ accepts plain text searches or direct platform URLs:
+
+```text
+!sr never gonna give you up
+!sr https://open.spotify.com/track/...
+!sr https://music.youtube.com/watch?v=...
+!sr https://music.apple.com/...
+!sr https://soundcloud.com/...
+```
+
+The desktop client resolves the request on your active music platform, updates the queue, and reports status back to chat (if responses are enabled).
+
+## Moderation rules
+
+From **Settings → Requests**, you can restrict who can request:
+
+- **Moderators only** — only chat mods can request.
+- **Subscribers only** — only subs can request (Twitch/YouTube).
+- **Manual approval** — every request waits in a pending queue until you approve.
+- **Guess the Song** — hide track info from the overlay until the song is revealed.
+
+See [Queue & moderation](/queue) for the full breakdown.
