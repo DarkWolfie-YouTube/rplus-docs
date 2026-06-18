@@ -52,9 +52,9 @@
             "icon": "music",
             "pages": [
               "integrations/music",
-              "integrations/music/spotify.mdx",
-              "integrations/music/youtube-music.mdx",
-              "integrations/music/apple-music.mdx"
+              "integrations/music/spotify",
+              "integrations/music/youtube-music",
+              "integrations/music/apple-music"
             ]
           },
           "integrations/chat"
