@@ -55,7 +55,7 @@
               "integrations/music/spotify",
               "integrations/music/youtube-music",
               "integrations/music/apple-music",
-              "integrations/music/soundcloud.mdx"
+              "integrations/music/soundcloud"
             ]
           },
           "integrations/chat"
